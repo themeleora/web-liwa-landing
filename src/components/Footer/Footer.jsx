@@ -24,7 +24,7 @@ const SOCIAL_ICONS = [
   },
   {
     label: 'Gmail',
-    href: 'mailto:withliwa@gmail.com',
+    href: 'https://mail.google.com/mail/?view=cm&fs=1&to=withliwa@gmail.com',
     path: 'M3.4 5h17.2c.77 0 1.4.63 1.4 1.4v11.2c0 .77-.63 1.4-1.4 1.4h-2.1V9.9L12 14.3 5.5 9.9v9.1H3.4c-.77 0-1.4-.63-1.4-1.4V6.4C2 5.63 2.63 5 3.4 5zm1.3 1.6L12 11.6l7.3-5H4.7z',
   },
 ];
@@ -137,7 +137,7 @@ export default function Footer() {
             ) : (
               <div className={styles.newsletterNote}>
                 {sent === 'duplicate'
-                  ? "You're already subscribed — thanks for sticking around."
+                  ? "You've already subscribed — thanks for sticking around."
                   : sent === 'error'
                   ? 'Something went wrong — please try again.'
                   : ''}
