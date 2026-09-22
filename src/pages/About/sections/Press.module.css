@@ -15,6 +15,13 @@
   padding: clamp(40px, 4.5vw, 64px) clamp(28px, 4vw, 64px) clamp(36px, 4vw, 56px);
 }
 
+@media (max-width: 480px) {
+  .card {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
 .header {
   max-width: 52rem;
   margin: 0 auto;
@@ -53,6 +60,17 @@
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
   align-items: stretch;
+}
+
+@media (max-width: 480px) {
+  .grid {
+    /* Below ~480px, .card's own padding leaves less room than the 260px
+       track minimum above, so the grid was forcing a track wider than the
+       actual available space — the card overflowed its container instead
+       of the (already-narrow) column just shrinking to fit. A plain 1fr
+       column has no such floor. */
+    grid-template-columns: 1fr;
+  }
 }
 
 .articleCard {

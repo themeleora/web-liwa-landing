@@ -38,6 +38,17 @@
   align-items: stretch;
 }
 
+@media (max-width: 480px) {
+  .content {
+    /* The 320px column floor above exceeds the space actually left after
+       .card's own padding on small phones (~249-299px available at
+       320-375px viewports) — the column was overflowing its container
+       instead of shrinking, and that overflow was getting silently clipped
+       by the page's global overflow-x:hidden rather than text wrapping. */
+    grid-template-columns: 1fr;
+  }
+}
+
 .left {
   min-width: 0;
   text-align: left;
@@ -124,6 +135,18 @@
   flex-direction: column;
   box-shadow: inset 1px 0 0 rgba(255, 255, 255, .22);
   padding-left: clamp(0px, 3vw, 56px);
+}
+
+@media (max-width: 768px) {
+  .right {
+    /* The divider line + left padding only make sense when .left sits
+       beside .right (desktop 2-column layout). Once the grid stacks them,
+       clamp()'s 3vw component never fully reaches 0 on its own, leaving a
+       residual ~10-11px left-only padding that shifts the input/button
+       block off-center relative to the section. */
+    box-shadow: none;
+    padding-left: 0;
+  }
 }
 
 .right .subtext {

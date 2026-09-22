@@ -5,6 +5,9 @@
   padding: 24px 28px 0;
 }
 
+/* .wrap is already position:sticky, which is enough to anchor .mobilePanel
+   (position:absolute) against it — no extra wrapper needed. */
+
 .bar {
   max-width: 1080px;
   margin: 0 auto;
@@ -108,11 +111,15 @@
 }
 
 .mobilePanel {
+  position: absolute;
+  z-index: 39;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 12px;
   display: flex;
   flex-direction: column;
   gap: 2px;
-  max-width: 1080px;
-  margin: 12px auto 0;
   background: #fff;
   border-radius: 28px;
   box-shadow: 0 20px 48px rgba(30, 27, 57, .14), 0 2px 8px rgba(30, 27, 57, .06);

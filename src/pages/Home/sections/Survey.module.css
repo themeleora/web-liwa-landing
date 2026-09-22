@@ -97,6 +97,7 @@
 .cardCta {
   display: inline-flex;
   align-items: center;
+  white-space: nowrap;
   gap: 10px;
   margin-top: 22px;
   border-radius: 9999px;
@@ -106,6 +107,19 @@
   font-weight: 700;
   padding: 16px 26px;
   transition: background 200ms var(--ease-standard), transform 200ms var(--ease-standard);
+}
+
+@media (max-width: 480px) {
+  .cardCta {
+    font-size: 15px;
+    padding: 13px 20px;
+    gap: 8px;
+  }
+
+  .cardCta svg {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 .cardCta:hover {

@@ -14,6 +14,16 @@
   align-items: start;
 }
 
+@media (max-width: 480px) {
+  .grid {
+    /* Same fix as WaitlistBanner/Press: the 320px column floor exceeds the
+       space left after .section's own padding on small phones (~280px
+       available at a 320px viewport), forcing overflow instead of
+       shrinking to fit. */
+    grid-template-columns: 1fr;
+  }
+}
+
 .infoCol {
   min-width: 0;
 }

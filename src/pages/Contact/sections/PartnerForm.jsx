@@ -103,8 +103,8 @@ export default function PartnerForm() {
         <div className={styles.infoCol}>
           <h2 className={styles.heading}>Partner with us</h2>
           <p className={styles.intro}>
-            Schools, LGUs, mobility groups, advocates and researchers — tell us how you already serve commuters and
-            where LIWA could help. We read every inquiry and reply to the ones that need a conversation.
+            Schools, LGUs, mobility groups, NGOs, advocates and researchers — tell us how you already serve
+            commuters and where LIWA could help. We'd love to explore what we can build together.
           </p>
           <div className={styles.contactRows}>
             <div className={styles.contactRow}>

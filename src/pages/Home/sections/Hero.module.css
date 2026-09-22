@@ -95,12 +95,28 @@
 .ctaSecondary {
   display: inline-flex;
   align-items: center;
+  white-space: nowrap;
   gap: 10px;
   border-radius: 9999px;
   font-size: 18px;
   font-weight: 700;
   padding: 16px 26px;
   transition: background 200ms var(--ease-standard), transform 200ms var(--ease-standard);
+}
+
+@media (max-width: 480px) {
+  .ctaPrimary,
+  .ctaSecondary {
+    font-size: 15px;
+    padding: 13px 20px;
+    gap: 8px;
+  }
+
+  .ctaPrimary svg,
+  .ctaSecondary svg {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 .ctaPrimary {

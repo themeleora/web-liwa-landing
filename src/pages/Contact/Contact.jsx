@@ -9,7 +9,7 @@ export default function Contact() {
       <GradientHero
         eyebrow="Say hello"
         heading="Contact Us"
-        subtext="Questions, ideas, research collaborations, or partnerships — we read everything."
+        subtext="Questions, ideas, research collaborations, or partnerships — we'd love to hear from you."
       />
       <PartnerForm />
       <FaqAccordion />

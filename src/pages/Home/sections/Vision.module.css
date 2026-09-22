@@ -108,8 +108,17 @@
     box-sizing: border-box;
   }
 
+  .badgeContext {
+    top: 2%;
+  }
+
   .badgePossibilities {
-    top: 54%;
+    top: 32%;
+    left: 0%;
+  }
+
+  .badgeControl {
+    top: 55%;
   }
 
   .badgeIcon {

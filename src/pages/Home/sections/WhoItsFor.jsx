@@ -14,7 +14,7 @@ const CARDS = [
   {
     id: 1,
     title: 'Women & gender-diverse commuters',
-    body: '18+ navigating everyday life.',
+    body: '18 or under 18 navigating everyday life.',
     bg: '#fff',
     titleColor: '#1E1B39',
     bodyColor: '#5C5878',
