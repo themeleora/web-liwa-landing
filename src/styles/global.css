@@ -1,0 +1,76 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Clips the decorative blur blobs that intentionally bleed past the page
+     edges (see PageBackground). Kept at the root instead of on a per-page
+     wrapper so it never creates a competing scroll container or an early
+     clip boundary that content further down the page (like the Footer)
+     needs to overlap across. */
+  overflow-x: hidden;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-page-bg);
+}
+
+body {
+  font-family: var(--font-lexend);
+  -webkit-font-smoothing: antialiased;
+  color: var(--color-text);
+}
+
+* {
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: #5049D6;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Branded scrollbar */
+html {
+  scrollbar-color: var(--color-primary) var(--color-page-bg);
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-page-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 9999px;
+  border: 3px solid var(--color-page-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-primary-hover);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

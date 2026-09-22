@@ -1,0 +1,99 @@
+.section {
+  padding: clamp(28px, 3vw, 44px) 28px;
+  background-color: #FFFFFF;
+  position: relative;
+  z-index: 1;
+}
+
+.card {
+  max-width: 1240px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border-radius: 32px;
+  padding: clamp(24px, 2.6vw, 36px) clamp(16px, 2vw, 28px);
+}
+
+.heading {
+  margin: 16px 0 0;
+  font-size: clamp(30px, 3.6vw, 44px);
+  font-weight: 500;
+  letter-spacing: -.025em;
+  line-height: 1.08;
+  color: var(--color-text);
+}
+
+.intro {
+  margin: 18px 0 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(168px, 1fr));
+  gap: 20px;
+  margin-top: 44px;
+}
+
+.audienceCard {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  min-height: 470px;
+  border-radius: 24px;
+  transition: transform 340ms var(--ease-spring), box-shadow 340ms var(--ease-spring);
+  cursor: default;
+}
+
+.cardHead {
+  position: relative;
+  z-index: 2;
+  padding: 32px 32px 0;
+}
+
+.cardTitle {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+
+.cardBody {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.cardImgWrap {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 190px;
+  margin-top: 22px;
+  overflow: hidden;
+}
+
+.cardImg {
+  position: absolute;
+  max-width: none;
+  pointer-events: none;
+  object-fit: cover;
+  object-position: center bottom;
+  transition: transform 560ms var(--ease-spring);
+}
+
+.badge {
+  position: absolute;
+  left: 32px;
+  bottom: 26px;
+  z-index: 4;
+  width: 40px;
+  height: 40px;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 24px rgba(30, 27, 57, .24);
+  transition: opacity 320ms var(--ease-spring), transform 320ms var(--ease-spring);
+}

@@ -1,0 +1,263 @@
+/* Generated from Figma Variables. First mode = :root default.
+   FLOAT tokens are unitless — multiply by 1px in calc() where a length is needed. */
+
+:root {
+  --accents-blue: rgb(0,136,255); /* @kind color */
+  --fills-secondary: rgba(120,120,128,0.16); /* @kind color */
+  --gray-900: rgb(30,30,30); /* @kind color */
+  --icon-default-default: var(--gray-900); /* @kind color */
+  --labels-vibrant-primary: rgb(51,51,51); /* @kind color */
+  --labels-vibrant-secondary: rgb(153,153,153); /* @kind color */
+  --mode: "Light";
+  --quick-exit-btn-color: rgb(51,9,114); /* @kind color */
+  --schemes-on-surface-variant: rgb(73,69,79); /* @kind color */
+  --schemes-on-surface: rgb(29,27,32); /* @kind color */
+  --schemes-secondary: rgb(98,91,113); /* @kind color */
+  --schemes-surface-container-high: rgb(236,230,240); /* @kind color */
+  --static-body-medium-font: var(--static-font-plain);
+  --static-body-medium-line-height: 20;
+  --static-body-medium-size: 14;
+  --static-body-medium-tracking: 0.25;
+  --static-body-medium-weight: var(--static-weight-regular);
+  --static-font-plain: "Roboto";
+  --static-label-small-font: var(--static-font-plain);
+  --static-label-small-line-height: 16;
+  --static-label-small-size: 11;
+  --static-label-small-tracking: 0.5;
+  --static-label-small-weight: var(--static-weight-medium);
+  --static-weight-medium: "Medium";
+  --static-weight-regular: "Regular";
+  --subcomponent-fill: rgb(170,170,170); /* @kind color */
+  --subcomponent-stroke: rgba(0,0,0,0.4); /* @kind color */
+  --white-1000: rgb(255,255,255); /* @kind color */
+}
+
+:root[data-theme="dark"], .dark {
+  --accents-blue: rgb(0,145,255); /* @kind color */
+  --accents-blue: rgb(92,184,255); /* @kind color */
+  --fills-secondary: rgba(120,120,128,0.32); /* @kind color */
+  --fills-secondary: rgba(120,120,128,0.4); /* @kind color */
+  --icon-default-default: var(--white-1000); /* @kind color */
+  --labels-vibrant-primary: rgb(255,255,255); /* @kind color */
+  --labels-vibrant-primary: rgb(255,255,255); /* @kind color */
+  --labels-vibrant-secondary: rgb(153,153,153); /* @kind color */
+  --labels-vibrant-secondary: rgb(153,153,153); /* @kind color */
+  --mode: "Dark";
+  --mode: "IC - Dark";
+  --schemes-on-surface-variant: rgb(202,196,208); /* @kind color */
+  --schemes-on-surface-variant: rgb(206,200,212); /* @kind color */
+  --schemes-on-surface-variant: rgb(255,249,255); /* @kind color */
+  --schemes-on-surface: rgb(230,224,233); /* @kind color */
+  --schemes-on-surface: rgb(255,249,255); /* @kind color */
+  --schemes-on-surface: rgb(255,255,255); /* @kind color */
+  --schemes-secondary: rgb(204,194,220); /* @kind color */
+  --schemes-secondary: rgb(211,193,255); /* @kind color */
+  --schemes-secondary: rgb(255,249,255); /* @kind color */
+  --schemes-surface-container-high: rgb(43,41,47); /* @kind color */
+  --schemes-surface-container-high: rgb(43,41,47); /* @kind color */
+  --schemes-surface-container-high: rgb(43,41,48); /* @kind color */
+}
+
+:root[data-theme="light"], .light {
+  --accents-blue: rgb(30,110,244); /* @kind color */
+  --fills-secondary: rgba(120,120,128,0.24); /* @kind color */
+  --labels-vibrant-primary: rgb(51,51,51); /* @kind color */
+  --labels-vibrant-secondary: rgb(153,153,153); /* @kind color */
+  --mode: "IC - Light";
+  --schemes-on-surface-variant: rgb(37,35,43); /* @kind color */
+  --schemes-on-surface-variant: rgb(69,65,74); /* @kind color */
+  --schemes-on-surface: rgb(0,0,0); /* @kind color */
+  --schemes-on-surface: rgb(29,27,32); /* @kind color */
+  --schemes-secondary: rgb(39,23,78); /* @kind color */
+  --schemes-secondary: rgb(73,57,113); /* @kind color */
+  --schemes-surface-container-high: rgb(236,230,238); /* @kind color */
+  --schemes-surface-container-high: rgb(236,230,238); /* @kind color */
+}
+
+:root[data-mode="monochrome-lt"] {
+  --schemes-on-surface-variant: rgb(71,71,71); /* @kind color */
+  --schemes-on-surface: rgb(27,27,27); /* @kind color */
+  --schemes-secondary: rgb(95,94,95); /* @kind color */
+  --schemes-surface-container-high: rgb(232,232,232); /* @kind color */
+}
+
+:root[data-mode="monochrome-dt"] {
+  --schemes-on-surface-variant: rgb(198,198,198); /* @kind color */
+  --schemes-on-surface: rgb(226,226,226); /* @kind color */
+  --schemes-secondary: rgb(198,198,198); /* @kind color */
+  --schemes-surface-container-high: rgb(42,42,42); /* @kind color */
+}
+
+:root[data-mode="pink-lt"] {
+  --schemes-on-surface-variant: rgb(80,67,72); /* @kind color */
+  --schemes-on-surface: rgb(33,25,28); /* @kind color */
+  --schemes-secondary: rgb(115,87,98); /* @kind color */
+  --schemes-surface-container-high: rgb(244,228,232); /* @kind color */
+}
+
+:root[data-mode="pink-dt"] {
+  --schemes-on-surface-variant: rgb(212,194,199); /* @kind color */
+  --schemes-on-surface: rgb(238,223,227); /* @kind color */
+  --schemes-secondary: rgb(225,189,202); /* @kind color */
+  --schemes-surface-container-high: rgb(48,40,43); /* @kind color */
+}
+
+:root[data-mode="rose-lt"] {
+  --schemes-on-surface-variant: rgb(82,67,69); /* @kind color */
+  --schemes-on-surface: rgb(34,25,26); /* @kind color */
+  --schemes-secondary: rgb(118,87,91); /* @kind color */
+  --schemes-surface-container-high: rgb(246,228,229); /* @kind color */
+}
+
+:root[data-mode="rose-dt"] {
+  --schemes-on-surface-variant: rgb(215,194,195); /* @kind color */
+  --schemes-on-surface: rgb(240,222,223); /* @kind color */
+  --schemes-secondary: rgb(229,189,193); /* @kind color */
+  --schemes-surface-container-high: rgb(49,40,41); /* @kind color */
+}
+
+:root[data-mode="red-lt"] {
+  --schemes-on-surface-variant: rgb(83,67,65); /* @kind color */
+  --schemes-on-surface: rgb(35,25,24); /* @kind color */
+  --schemes-secondary: rgb(120,87,83); /* @kind color */
+  --schemes-surface-container-high: rgb(247,228,226); /* @kind color */
+}
+
+:root[data-mode="red-dt"] {
+  --schemes-on-surface-variant: rgb(216,194,190); /* @kind color */
+  --schemes-on-surface: rgb(241,222,220); /* @kind color */
+  --schemes-secondary: rgb(231,189,183); /* @kind color */
+  --schemes-surface-container-high: rgb(50,40,38); /* @kind color */
+}
+
+:root[data-mode="orange-lt"] {
+  --schemes-on-surface-variant: rgb(82,68,60); /* @kind color */
+  --schemes-on-surface: rgb(34,26,21); /* @kind color */
+  --schemes-secondary: rgb(118,89,72); /* @kind color */
+  --schemes-surface-container-high: rgb(246,229,221); /* @kind color */
+}
+
+:root[data-mode="orange-dt"] {
+  --schemes-on-surface-variant: rgb(215,194,184); /* @kind color */
+  --schemes-on-surface: rgb(240,223,215); /* @kind color */
+  --schemes-secondary: rgb(229,191,170); /* @kind color */
+  --schemes-surface-container-high: rgb(49,40,35); /* @kind color */
+}
+
+:root[data-mode="yellow-lt"] {
+  --schemes-on-surface-variant: rgb(77,70,57); /* @kind color */
+  --schemes-on-surface: rgb(31,27,19); /* @kind color */
+  --schemes-secondary: rgb(108,93,64); /* @kind color */
+  --schemes-surface-container-high: rgb(241,231,217); /* @kind color */
+}
+
+:root[data-mode="yellow-dt"] {
+  --schemes-on-surface-variant: rgb(208,197,180); /* @kind color */
+  --schemes-on-surface: rgb(235,225,212); /* @kind color */
+  --schemes-secondary: rgb(216,196,160); /* @kind color */
+  --schemes-surface-container-high: rgb(46,41,33); /* @kind color */
+}
+
+:root[data-mode="chartreuse-lt"] {
+  --schemes-on-surface-variant: rgb(71,72,59); /* @kind color */
+  --schemes-on-surface: rgb(27,28,20); /* @kind color */
+  --schemes-secondary: rgb(94,97,69); /* @kind color */
+  --schemes-surface-container-high: rgb(234,233,220); /* @kind color */
+}
+
+:root[data-mode="chartreuse-dt"] {
+  --schemes-on-surface-variant: rgb(200,199,183); /* @kind color */
+  --schemes-on-surface: rgb(229,227,214); /* @kind color */
+  --schemes-secondary: rgb(198,201,167); /* @kind color */
+  --schemes-surface-container-high: rgb(42,43,34); /* @kind color */
+}
+
+:root[data-mode="green-lt"] {
+  --schemes-on-surface-variant: rgb(66,73,64); /* @kind color */
+  --schemes-on-surface: rgb(24,29,24); /* @kind color */
+  --schemes-secondary: rgb(82,100,81); /* @kind color */
+  --schemes-surface-container-high: rgb(229,233,225); /* @kind color */
+}
+
+:root[data-mode="green-dt"] {
+  --schemes-on-surface-variant: rgb(193,201,190); /* @kind color */
+  --schemes-on-surface: rgb(224,228,219); /* @kind color */
+  --schemes-secondary: rgb(184,204,181); /* @kind color */
+  --schemes-surface-container-high: rgb(39,43,38); /* @kind color */
+}
+
+:root[data-mode="teal-lt"] {
+  --schemes-on-surface-variant: rgb(63,73,70); /* @kind color */
+  --schemes-on-surface: rgb(23,29,27); /* @kind color */
+  --schemes-secondary: rgb(75,100,95); /* @kind color */
+  --schemes-surface-container-high: rgb(227,234,231); /* @kind color */
+}
+
+:root[data-mode="teal-dt"] {
+  --schemes-on-surface-variant: rgb(190,201,197); /* @kind color */
+  --schemes-on-surface: rgb(221,228,225); /* @kind color */
+  --schemes-secondary: rgb(177,204,198); /* @kind color */
+  --schemes-surface-container-high: rgb(37,43,42); /* @kind color */
+}
+
+:root[data-mode="cyan-lt"] {
+  --schemes-on-surface-variant: rgb(64,72,75); /* @kind color */
+  --schemes-on-surface: rgb(23,28,30); /* @kind color */
+  --schemes-secondary: rgb(76,99,106); /* @kind color */
+  --schemes-surface-container-high: rgb(228,233,235); /* @kind color */
+}
+
+:root[data-mode="cyan-dt"] {
+  --schemes-on-surface-variant: rgb(191,200,204); /* @kind color */
+  --schemes-on-surface: rgb(222,227,230); /* @kind color */
+  --schemes-secondary: rgb(179,202,211); /* @kind color */
+  --schemes-surface-container-high: rgb(37,43,45); /* @kind color */
+}
+
+:root[data-mode="blue-lt"] {
+  --schemes-on-surface-variant: rgb(68,70,79); /* @kind color */
+  --schemes-on-surface: rgb(26,27,33); /* @kind color */
+  --schemes-secondary: rgb(88,95,114); /* @kind color */
+  --schemes-surface-container-high: rgb(232,231,239); /* @kind color */
+}
+
+:root[data-mode="blue-dt"] {
+  --schemes-on-surface-variant: rgb(197,198,208); /* @kind color */
+  --schemes-on-surface: rgb(226,226,233); /* @kind color */
+  --schemes-secondary: rgb(192,198,220); /* @kind color */
+  --schemes-surface-container-high: rgb(40,42,47); /* @kind color */
+}
+
+:root[data-mode="indigo-lt"] {
+  --schemes-on-surface-variant: rgb(71,70,79); /* @kind color */
+  --schemes-on-surface: rgb(28,27,33); /* @kind color */
+  --schemes-secondary: rgb(95,93,114); /* @kind color */
+  --schemes-surface-container-high: rgb(234,231,239); /* @kind color */
+}
+
+:root[data-mode="indigo-dt"] {
+  --schemes-on-surface-variant: rgb(200,197,208); /* @kind color */
+  --schemes-on-surface: rgb(229,225,233); /* @kind color */
+  --schemes-secondary: rgb(199,196,220); /* @kind color */
+  --schemes-surface-container-high: rgb(42,41,47); /* @kind color */
+}
+
+:root[data-mode="purple-lt"] {
+  --schemes-on-surface-variant: rgb(74,69,78); /* @kind color */
+  --schemes-on-surface: rgb(29,26,32); /* @kind color */
+  --schemes-secondary: rgb(101,91,112); /* @kind color */
+  --schemes-surface-container-high: rgb(237,230,238); /* @kind color */
+}
+
+:root[data-mode="purple-dt"] {
+  --schemes-on-surface-variant: rgb(203,196,207); /* @kind color */
+  --schemes-on-surface: rgb(231,224,232); /* @kind color */
+  --schemes-secondary: rgb(206,194,218); /* @kind color */
+  --schemes-surface-container-high: rgb(44,41,47); /* @kind color */
+}
+
+:root[data-mode="wireframe"] {
+  --static-font-plain: "Flow Circular";
+  --static-weight-medium: "Regular";
+  --static-weight-regular: "Regular";
+}

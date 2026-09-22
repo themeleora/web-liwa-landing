@@ -1,0 +1,4 @@
+/* Minimal element defaults so specimen cards and kits inherit the brand voice. */
+body{margin:0;font:var(--type-body);color:var(--text-body);background:var(--surface-page);-webkit-font-smoothing:antialiased}
+a{color:var(--liwa-purple);text-decoration:none}
+a:hover{color:var(--liwa-violet-deep);text-decoration:underline}

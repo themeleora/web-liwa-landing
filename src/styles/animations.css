@@ -1,0 +1,36 @@
+/*
+  Global, non-module stylesheet. Vite's CSS Modules processing renames bare
+  `animation:` identifiers inside .module.css files, even when the actual
+  @keyframes rule lives in a separate global file. Fix: keyframes + small
+  utility classes live here, and components apply the utility class as a
+  second, unscoped className alongside their module class — never reference
+  a keyframe name directly inside a CSS Module's `animation` property.
+*/
+
+@keyframes liwaBobA {
+  0%, 100% { transform: translateY(-10px); }
+  50% { transform: translateY(14px); }
+}
+@keyframes liwaBobB {
+  0%, 100% { transform: translateY(12px); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes liwaBobC {
+  0%, 100% { transform: translateY(-6px); }
+  50% { transform: translateY(10px); }
+}
+@keyframes liwaTwinkle {
+  0%, 100% { transform: rotate(-8deg) scale(1); opacity: .9; }
+  50% { transform: rotate(6deg) scale(1.12); opacity: 1; }
+}
+@keyframes liwaSwing {
+  0%, 100% { transform: rotate(-9deg); }
+  50% { transform: rotate(9deg); }
+}
+
+.anim-bob-a { animation: liwaBobA 4s ease-in-out infinite; }
+.anim-bob-b { animation: liwaBobB 5s ease-in-out .4s infinite; }
+.anim-bob-c { animation: liwaBobC 6s ease-in-out .8s infinite; }
+.anim-twinkle-sm { animation: liwaTwinkle 3.2s ease-in-out infinite; }
+.anim-twinkle { animation: liwaTwinkle 3.6s ease-in-out infinite; }
+.anim-swing { animation: liwaSwing 3.4s ease-in-out infinite; }

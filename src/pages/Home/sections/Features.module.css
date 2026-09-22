@@ -1,0 +1,120 @@
+.section {
+  background: transparent;
+  padding: 104px 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+}
+
+.heading {
+  margin: 16px auto 0;
+  font-size: clamp(30px, 3.8vw, 46px);
+  font-weight: 500;
+  letter-spacing: -.025em;
+  line-height: 1.08;
+  color: var(--color-text);
+}
+
+.intro {
+  margin: 20px auto 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  max-width: 672px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(190px, 24vw, 420px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(20px, 3vw, 48px);
+  margin-top: clamp(44px, 5vw, 68px);
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+.item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.itemRight {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.itemLeft {
+  flex-direction: row;
+  text-align: left;
+}
+
+.icon {
+  flex: none;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: var(--color-chip-bg);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.itemText {
+  min-width: 0;
+}
+
+.itemTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.itemBody {
+  margin-top: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.centerCol {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.centerBlob {
+  position: absolute;
+  left: 50%;
+  top: 6%;
+  width: 88%;
+  height: 74%;
+  transform: translateX(-52%);
+  border-radius: 44px;
+  background: linear-gradient(150deg, var(--color-primary), var(--color-primary-light));
+  box-shadow: 0 30px 70px rgba(108, 99, 255, .26);
+}
+
+.centerImg {
+  position: relative;
+  display: block;
+  width: 406px;
+  max-width: 440px;
+  height: 507px;
+  filter: drop-shadow(0 34px 70px rgba(30, 27, 57, .26));
+}

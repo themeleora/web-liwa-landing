@@ -1,0 +1,23 @@
+/* LIWA typefaces.
+   Montserrat is self-hosted from the brand font files in /fonts (user-supplied).
+   Roboto is NOT a brand face — it appears only in library-kit leftovers inside
+   Liwa.fig (--static-font-plain) and is still delivered from Google Fonts. */
+@font-face{font-family:"Montserrat";src:url("../fonts/Montserrat-Thin.otf") format("opentype");font-weight:100;font-style:normal;font-display:swap}
+@font-face{font-family:"Montserrat";src:url("../fonts/Montserrat-ThinItalic.otf") format("opentype");font-weight:100;font-style:italic;font-display:swap}
+@font-face{font-family:"Montserrat";src:url("../fonts/Montserrat-ExtraLight.otf") format("opentype");font-weight:200;font-style:normal;font-display:swap}
+@font-face{font-family:"Montserrat";src:url("../fonts/Montserrat-ExtraLightItalic.otf") format("opentype");font-weight:200;font-style:italic;font-display:swap}
+@font-face{font-family:"Montserrat";src:url("../fonts/Montserrat-Light.otf") format("opentype");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"Montserrat";src:url("../fonts/Montserrat-LightItalic.otf") format("opentype");font-weight:300;font-style:italic;font-display:swap}
+@font-face{font-family:"Montserrat";src:url("../fonts/Montserrat-Regular.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Montserrat";src:url("../fonts/Montserrat-Italic.otf") format("opentype");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Montserrat";src:url("../fonts/Montserrat-Medium.otf") format("opentype");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Montserrat";src:url("../fonts/Montserrat-MediumItalic.otf") format("opentype");font-weight:500;font-style:italic;font-display:swap}
+@font-face{font-family:"Montserrat";src:url("../fonts/Montserrat-SemiBold.otf") format("opentype");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Montserrat";src:url("../fonts/Montserrat-SemiBoldItalic.otf") format("opentype");font-weight:600;font-style:italic;font-display:swap}
+@font-face{font-family:"Montserrat";src:url("../fonts/Montserrat-Bold.otf") format("opentype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Montserrat";src:url("../fonts/Montserrat-BoldItalic.otf") format("opentype");font-weight:700;font-style:italic;font-display:swap}
+@font-face{font-family:"Montserrat";src:url("../fonts/Montserrat-ExtraBold.otf") format("opentype");font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:"Montserrat";src:url("../fonts/Montserrat-ExtraBoldItalic.otf") format("opentype");font-weight:800;font-style:italic;font-display:swap}
+@font-face{font-family:"Montserrat";src:url("../fonts/Montserrat-Black.otf") format("opentype");font-weight:900;font-style:normal;font-display:swap}
+@font-face{font-family:"Montserrat";src:url("../fonts/Montserrat-BlackItalic.otf") format("opentype");font-weight:900;font-style:italic;font-display:swap}
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");

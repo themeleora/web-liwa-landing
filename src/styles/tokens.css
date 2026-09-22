@@ -1,0 +1,31 @@
+:root {
+  --color-primary: #6C63FF;
+  --color-primary-hover: #5A51F0;
+  --color-primary-deep: #4D3AC7;
+  --color-primary-light: #8F88FF;
+
+  --color-text: #1E1B39;
+  --color-text-secondary: #5C5878;
+  --color-text-muted: #4A476B;
+
+  --color-page-bg: #FFFFFF;
+  --color-white: #FFFFFF;
+
+  --color-chip-bg: #F1EFFF;
+  --color-chip-border: #E2DEFF;
+
+  --color-footer-bg: #1E1B39;
+  --color-footer-link: #E4E2F5;
+  --color-footer-label: #6E689C;
+  --color-footer-icon-bg: #2A2650;
+  --color-footer-icon-fg: #8F88FF;
+  --color-footer-watermark: #2A2650;
+  --color-footer-border: #322D5C;
+  --color-footer-input-bg: #2A2650;
+
+  --font-lexend: 'Lexend', -apple-system, 'Segoe UI', sans-serif;
+  --font-pacifico: 'Pacifico', cursive;
+
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.22, 0.61, 0.36, 1);
+}

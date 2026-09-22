@@ -1,0 +1,67 @@
+/* LIWA colour system — values transcribed verbatim from Liwa.fig
+   (Assets → BRANDING frame + measured usage across the Design page). */
+:root{
+  /* ── Brand palette (BRANDING frame, numbered swatches) ───────────── */
+  --liwa-lavender:#8F88FF;            /* 01 · rgb(143,136,255) */
+  --liwa-purple:#8166EB;              /* 02 · rgb(129,102,235) */
+  --liwa-indigo:#342E98;              /* 03 · rgb(52,46,152) — most-used ink */
+  --liwa-ink:#0A0C22;                 /* 04 · rgb(10,12,34) */
+  --liwa-amber:#FFBB00;               /* 04 (amber) · rgb(255,187,0) */
+
+  /* Solid-colour page of the BRANDING frame */
+  --liwa-plum:#140726;                /* rgb(20,7,38) — logo ink */
+  --liwa-mist:#F0F4FD;                /* rgb(240,244,253) — map / nav surface */
+  --liwa-paper:#FAFAFA;               /* rgb(250,250,250) — card surface */
+
+  /* ── Extended purples measured in the UI ────────────────────────── */
+  --liwa-violet-deep:#330972;         /* rgb(51,9,114) — headings, quick-exit */
+  --liwa-violet-bright:#8A38F5;       /* rgb(138,56,245) — focus stroke */
+  --liwa-lilac-mute:#A5A5D5;          /* rgb(165,165,213) */
+  --liwa-lilac-tint:#E6E5F1;          /* rgb(230,229,241) */
+  --liwa-lavender-40:rgba(143,136,255,0.4);  /* hairline rules & card rings */
+  --liwa-lavender-50:rgba(143,136,255,0.5);
+
+  /* ── Neutrals ───────────────────────────────────────────────────── */
+  --liwa-white:#FFFFFF;
+  --liwa-grey-100:#EBEBEB;            /* rgb(235,235,235) */
+  --liwa-grey-200:#E0E0E0;            /* rgb(224,224,224) */
+  --liwa-grey-300:#D9D9D9;            /* rgb(217,217,217) */
+  --liwa-grey-500:#A3A3A3;            /* rgb(163,163,163) */
+  --liwa-slate-700:#455A64;           /* rgb(69,90,100) */
+  --liwa-slate-900:#263238;           /* rgb(38,50,56) */
+  --liwa-black:#000000;
+
+  /* ── Safety scale — the semantic core of the product ─────────────── */
+  --liwa-safe:#09B000;                /* rgb(9,176,0)   · "Safe" */
+  --liwa-generally-safe:#FFC727;      /* rgb(255,199,39) · "Generally Safe" */
+  --liwa-caution:#FF9327;             /* rgb(255,147,39) · "Use Caution" */
+  --liwa-avoid:#FF0000;               /* rgb(255,0,0)   · "Avoid if Possible" */
+
+  /* Other signal colours seen in the file */
+  --liwa-sky:#009DFF;                 /* rgb(0,157,255) */
+  --liwa-coral:#FF725E;               /* rgb(255,114,94) */
+  --liwa-gold:#FDBA00;                /* rgb(253,186,0) */
+
+  /* ── Semantic aliases ───────────────────────────────────────────── */
+  --app-backdrop:var(--liwa-lavender);      /* the lavender field behind every screen */
+  --surface-page:var(--liwa-white);
+  --surface-card:var(--liwa-paper);
+  --surface-sunken:var(--liwa-mist);        /* map panel, bottom nav bar */
+  --surface-overlay:var(--liwa-white);      /* modals */
+
+  --text-heading:var(--liwa-violet-deep);
+  --text-body:var(--liwa-indigo);
+  --text-muted:var(--liwa-lilac-mute);
+  --text-on-brand:var(--liwa-white);
+  --text-subtle:var(--liwa-grey-500);
+
+  --border-hairline:var(--liwa-lavender-40);
+  --border-strong:var(--liwa-lavender);
+  --border-field:var(--liwa-grey-300);
+
+  --action-primary:var(--liwa-lavender);
+  --action-primary-pressed:var(--liwa-ink);
+  --action-secondary:var(--liwa-purple);
+  --action-danger:var(--liwa-avoid);
+  --action-quick-exit:var(--liwa-violet-deep);
+}

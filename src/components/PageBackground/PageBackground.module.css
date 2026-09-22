@@ -1,0 +1,80 @@
+.wrap {
+  position: relative;
+  background: #FFFFFF;
+  color: var(--color-text);
+  /* No overflow clipping here on purpose: WaitlistBanner (a child of this
+     wrap, on pages that use it) has a negative bottom margin meant to pull
+     the global Footer (rendered separately, outside this wrap, in App.jsx)
+     up to overlap it. If this element clips overflow, that negative margin
+     just gets cut off at wrap's own bottom edge instead of reaching Footer.
+     Horizontal clipping for the decorative blur blobs below is handled
+     globally on `html` instead (see global.css) — a single clip boundary at
+     the true page edge that both axes' concerns can't fight over. */
+}
+
+/*
+  Pulls the whole page up to overlap the sticky Navbar above it, so the
+  hero's gradient card starts right at the very top with the navbar floating
+  over it. This margin must live on `.wrap` itself, not on the hero child:
+  `.wrap`'s `overflow: hidden` establishes a block-formatting context, which
+  blocks a first child's negative top margin from collapsing into the
+  parent — the margin would just get silently clipped instead of pulling
+  anything up. A margin `.wrap` declares on itself, relative to its own
+  preceding sibling (the Navbar), isn't subject to that rule.
+*/
+.overlapNav {
+  margin-top: -92px;
+}
+
+/*
+  Clips the 3 decorative blobs to wrap's actual content height. This lives on
+  its own absolutely-positioned layer (sized to `.wrap` via inset:0) rather
+  than on `.wrap` itself, because the blobs use large fixed pixel offsets
+  (tuned for Home's tall content) that overshoot much shorter pages like
+  About/Blog/Contact — without a dedicated clip layer, that overshoot would
+  inflate the page's scrollable height with blank space past the Footer.
+  `.wrap` itself must stay unclipped so WaitlistBanner's overlap-into-Footer
+  margin (see `.wrap`'s own comment) keeps working.
+*/
+.blobLayer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.blobA {
+  left: -10%;
+  top: 1200px;
+  width: 760px;
+  height: 760px;
+  background: var(--color-primary);
+  opacity: .16;
+  filter: blur(140px);
+}
+
+.blobB {
+  right: -12%;
+  top: 2400px;
+  width: 680px;
+  height: 680px;
+  background: var(--color-primary-light);
+  opacity: .14;
+  filter: blur(150px);
+}
+
+.blobC {
+  left: 20%;
+  bottom: 600px;
+  width: 720px;
+  height: 720px;
+  background: var(--color-primary);
+  opacity: .12;
+  filter: blur(160px);
+}
