@@ -1,6 +1,8 @@
 .hero {
   margin: 0 clamp(10px, 1.8vw, 24px) 0;
-  padding: 164px 20px 0;
+  /* Floor must clear PageBackground's overlapNav (-92px pull-up under the
+     sticky navbar) with room to spare — see GradientHero.module.css. */
+  padding: clamp(140px, 11vw, 164px) 20px 0;
   position: relative;
   overflow: hidden;
   border-radius: clamp(28px, 3vw, 44px);

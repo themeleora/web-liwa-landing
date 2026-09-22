@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { supabase } from '../../lib/supabaseClient.js';
+import { useAsyncStatus } from '../../hooks/useAsyncStatus.js';
+import Spinner from '../Spinner/Spinner.jsx';
+import SuccessNote from '../SuccessNote/SuccessNote.jsx';
 import styles from './Footer.module.css';
-
-const SURVEY_URL = 'https://forms.gle/Eu3ESnJPz4DRac1C8';
 
 const SOCIAL_ICONS = [
   {
@@ -29,34 +30,39 @@ const SOCIAL_ICONS = [
 ];
 
 const PAGE_LINKS = [
-  { to: '/home', label: 'Home' },
+  { to: '/home', label: 'LIWA' },
   { to: '/about', label: 'About Us' },
   { to: '/blog', label: 'Blog' },
   { to: '/contact', label: 'Contact Us' },
 ];
 
-const SITE_LINKS = [
-  { to: '/home#features', label: 'Features' },
-  { to: '/home#vision', label: 'The Big Idea' },
-  { to: '/home#who', label: "Who It's For" },
+const LEGAL_LINKS = [
+  { to: '/privacy', label: 'Privacy Policy' },
+  { to: '/terms', label: 'Terms of Service' },
 ];
+
+const NO_BANNER_ROUTES = ['/contact', '/privacy', '/terms'];
 
 export default function Footer() {
   const location = useLocation();
-  const isContact = location.pathname.startsWith('/contact');
+  const hasNoBannerAbove = NO_BANNER_ROUTES.some((path) => location.pathname.startsWith(path));
 
   const [email, setEmail] = useState('');
   const [sent, setSent] = useState(false);
+  const { isLoading, run } = useAsyncStatus();
 
-  const submitEmail = async () => {
-    const value = email.trim();
+  const submitEmail = () => {
+    const value = email.trim().toLowerCase();
     if (!value) return;
-    const { error } = await supabase.from('newsletter_signups').insert({ email: value });
-    setSent(error ? 'error' : true);
+    run(async () => {
+      const { error } = await supabase.from('newsletter_signups').insert({ email: value });
+      // Postgres unique_violation — this email is already subscribed.
+      setSent(error ? (error.code === '23505' ? 'duplicate' : 'error') : true);
+    });
   };
 
   return (
-    <div className={`${styles.footer} ${isContact ? styles.footerStandalone : styles.footerWithBanner}`}>
+    <div className={`${styles.footer} ${hasNoBannerAbove ? styles.footerStandalone : styles.footerWithBanner}`}>
       <div className={styles.inner}>
         <div className={styles.grid}>
           <div className={styles.brandCol}>
@@ -94,15 +100,12 @@ export default function Footer() {
           </div>
 
           <div className={styles.linkCol}>
-            <div className={styles.colLabel}>On the site</div>
-            {SITE_LINKS.map((link) => (
+            <div className={styles.colLabel}>Legal</div>
+            {LEGAL_LINKS.map((link) => (
               <Link key={link.to} to={link.to} className={styles.footerLink}>
                 {link.label}
               </Link>
             ))}
-            <a href={SURVEY_URL} target="_blank" rel="noopener" className={styles.footerLink}>
-              Take the Survey
-            </a>
           </div>
 
           <div className={styles.newsletterCol}>
@@ -118,13 +121,28 @@ export default function Footer() {
                 }}
                 className={styles.newsletterInput}
               />
-              <span onClick={submitEmail} className={styles.newsletterSubmit}>
-                &rarr;
-              </span>
+              <button
+                type="button"
+                onClick={submitEmail}
+                className={styles.newsletterSubmit}
+                disabled={isLoading}
+                aria-busy={isLoading}
+                aria-label="Subscribe to the newsletter"
+              >
+                {isLoading ? <Spinner size={16} /> : <>&rarr;</>}
+              </button>
             </div>
-            <div className={styles.newsletterNote}>
-              {sent === true ? "Thanks — we'll be in touch." : sent === 'error' ? 'Something went wrong — please try again.' : ''}
-            </div>
+            {sent === true ? (
+              <SuccessNote message="Thanks — we'll be in touch." variant="onDark" />
+            ) : (
+              <div className={styles.newsletterNote}>
+                {sent === 'duplicate'
+                  ? "You're already subscribed — thanks for sticking around."
+                  : sent === 'error'
+                  ? 'Something went wrong — please try again.'
+                  : ''}
+              </div>
+            )}
           </div>
         </div>
 

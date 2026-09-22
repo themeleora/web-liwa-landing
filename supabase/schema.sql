@@ -8,10 +8,16 @@
 -- can submit these forms but can never read back what anyone (including
 -- themselves) has submitted. Reading the data back is left to an
 -- authenticated/service-role context (e.g. a dashboard), not covered here.
+--
+-- waitlist_signups.email and newsletter_signups.email are UNIQUE so the same
+-- address can't sign up twice by accident. The app lowercases the address
+-- before inserting, so the constraint catches "Dani@x.com" vs "dani@x.com"
+-- as the same signup too. partner_inquiries.email is intentionally NOT
+-- unique — someone may legitimately submit more than one inquiry over time.
 
 create table if not exists waitlist_signups (
   id uuid primary key default gen_random_uuid(),
-  email text not null,
+  email text not null unique,
   created_at timestamptz not null default now()
 );
 
@@ -25,7 +31,7 @@ create policy "anon can insert waitlist signups"
 -- "Stay in the loop" footer newsletter form (present on every page).
 create table if not exists newsletter_signups (
   id uuid primary key default gen_random_uuid(),
-  email text not null,
+  email text not null unique,
   created_at timestamptz not null default now()
 );
 

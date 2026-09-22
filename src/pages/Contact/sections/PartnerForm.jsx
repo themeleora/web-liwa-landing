@@ -1,5 +1,9 @@
 import { useState } from 'react';
 import { supabase } from '../../../lib/supabaseClient.js';
+import { useAsyncStatus } from '../../../hooks/useAsyncStatus.js';
+import Spinner from '../../../components/Spinner/Spinner.jsx';
+import SuccessNote from '../../../components/SuccessNote/SuccessNote.jsx';
+import Select from '../../../components/Select/Select.jsx';
 import styles from './PartnerForm.module.css';
 
 const ORG_TYPES = [
@@ -32,6 +36,7 @@ export default function PartnerForm() {
   const [step, setStep] = useState(1);
   const [form, setForm] = useState(EMPTY_FORM);
   const [cSent, setCSent] = useState(false);
+  const { isLoading, run } = useAsyncStatus();
 
   const field = (key) => (e) => {
     setForm((f) => ({ ...f, [key]: e.target.value }));
@@ -53,7 +58,7 @@ export default function PartnerForm() {
     }
   };
 
-  const goNext = async () => {
+  const goNext = () => {
     if (step === 1) {
       if (!form.fName.trim() || !form.fEmail.trim()) return setCSent('need1');
       setStep(2);
@@ -66,19 +71,21 @@ export default function PartnerForm() {
       setCSent(false);
       return;
     }
-    const { error } = await supabase.from('partner_inquiries').insert({
-      full_name: form.fName.trim(),
-      email: form.fEmail.trim(),
-      location: form.fLoc.trim() || null,
-      organization_name: form.fOrg.trim(),
-      organization_type: form.fType || null,
-      role: form.fRole.trim() || null,
-      website_link: form.fLink.trim() || null,
-      interests: form.picked,
-      message: form.fMsg.trim() || null,
-      heard_about: form.fHeard.trim() || null,
+    run(async () => {
+      const { error } = await supabase.from('partner_inquiries').insert({
+        full_name: form.fName.trim(),
+        email: form.fEmail.trim(),
+        location: form.fLoc.trim() || null,
+        organization_name: form.fOrg.trim(),
+        organization_type: form.fType || null,
+        role: form.fRole.trim() || null,
+        website_link: form.fLink.trim() || null,
+        interests: form.picked,
+        message: form.fMsg.trim() || null,
+        heard_about: form.fHeard.trim() || null,
+      });
+      setCSent(error ? 'error' : true);
     });
-    setCSent(error ? 'error' : true);
   };
 
   const cNote =
@@ -88,8 +95,6 @@ export default function PartnerForm() {
       ? 'Please add your organization name to continue.'
       : cSent === 'error'
       ? 'Something went wrong — please try again.'
-      : cSent === true
-      ? "Thanks — your inquiry is with us. We'll reply soon."
       : '';
 
   return (
@@ -194,14 +199,15 @@ export default function PartnerForm() {
                 <label className={styles.label}>
                   Organization type <span className={styles.optional}>(optional)</span>
                 </label>
-                <select value={form.fType} onChange={field('fType')} className={styles.select}>
-                  <option value="">Select one</option>
-                  {ORG_TYPES.map((type) => (
-                    <option key={type} value={type}>
-                      {type}
-                    </option>
-                  ))}
-                </select>
+                <Select
+                  value={form.fType}
+                  onChange={(v) => {
+                    setForm((f) => ({ ...f, fType: v }));
+                    setCSent(false);
+                  }}
+                  options={ORG_TYPES}
+                  placeholder="Select one"
+                />
               </div>
               <div className={styles.field}>
                 <label className={styles.label}>
@@ -281,15 +287,34 @@ export default function PartnerForm() {
 
           <div className={`${styles.navRow} ${step > 1 ? styles.navRowSpread : styles.navRowEnd}`}>
             {step > 1 && (
-              <div onClick={goBack} className={styles.backButton}>
+              <button type="button" onClick={goBack} className={styles.backButton} disabled={isLoading}>
                 Back
-              </div>
+              </button>
             )}
-            <div onClick={goNext} className={styles.nextButton}>
-              {step < 3 ? 'Continue' : 'Send message'}
-            </div>
+            <button
+              type="button"
+              onClick={goNext}
+              className={styles.nextButton}
+              disabled={isLoading}
+              aria-busy={isLoading}
+            >
+              {isLoading ? (
+                <>
+                  <Spinner size={16} />
+                  Sending…
+                </>
+              ) : step < 3 ? (
+                'Continue'
+              ) : (
+                'Send message'
+              )}
+            </button>
           </div>
-          <div className={styles.note}>{cNote}</div>
+          {cSent === true ? (
+            <SuccessNote message="Thanks — your inquiry is with us. We'll reply soon." variant="standard" />
+          ) : (
+            <div className={styles.note}>{cNote}</div>
+          )}
         </div>
       </div>
     </div>

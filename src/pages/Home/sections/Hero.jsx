@@ -43,7 +43,8 @@ export default function Hero() {
           to the way we move.
         </h1>
         <p className={styles.subtext}>
-          LIWA is a privacy-first navigation experience being built for women and gender-diverse commuters.
+          LIWA is a privacy-first navigation experience designed to help commuters make more informed travel
+          decisions by bringing relevant safety context into everyday navigation.
         </p>
 
         <div className={styles.ctaRow}>

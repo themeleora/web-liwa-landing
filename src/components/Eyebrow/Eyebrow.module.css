@@ -24,6 +24,29 @@
   white-space: nowrap;
 }
 
+@media (max-width: 768px) {
+  .pill {
+    gap: 6px;
+    padding: 5px 12px 5px 5px;
+  }
+
+  .iconCircle {
+    width: 18px;
+    height: 18px;
+  }
+
+  .iconCircle svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  .label {
+    font-size: 10px;
+    letter-spacing: .1em;
+    white-space: normal;
+  }
+}
+
 /* Standard — light purple pill on white/light backgrounds */
 .standard {
   background: var(--color-chip-bg);

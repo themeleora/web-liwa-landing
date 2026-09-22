@@ -26,18 +26,19 @@ export default function Vision() {
   return (
     <div id="vision" className={styles.section}>
       <div className={styles.card}>
-        <div className={styles.imgSpacer} />
-        <img src="/images/screen-arrival.png" alt="LIWA arrival screen on a phone" className={styles.phoneImg} />
-        {BADGES.map((badge) => (
-          <div key={badge.id} className={`${styles.badge} ${styles[badge.className]}`}>
-            <span className={styles.badgeIcon}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d={badge.path} />
-              </svg>
-            </span>
-            <span className={styles.badgeLabel}>{badge.label}</span>
-          </div>
-        ))}
+        <div className={styles.imgWrap}>
+          <img src="/images/screen-arrival.png" alt="LIWA arrival screen on a phone" className={styles.phoneImg} />
+          {BADGES.map((badge) => (
+            <div key={badge.id} className={`${styles.badge} ${styles[badge.className]}`}>
+              <span className={styles.badgeIcon}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d={badge.path} />
+                </svg>
+              </span>
+              <span className={styles.badgeLabel}>{badge.label}</span>
+            </div>
+          ))}
+        </div>
         <div className={styles.content}>
           <Eyebrow label="The big idea" variant="onDarkVision" />
           <h2 className={styles.heading}>We don't want to decide for you.</h2>

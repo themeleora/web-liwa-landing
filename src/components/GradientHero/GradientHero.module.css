@@ -1,6 +1,9 @@
 .hero {
   margin: 0 clamp(10px, 1.8vw, 24px) 0;
-  padding: 184px 28px clamp(56px, 6vw, 88px);
+  /* Floor must clear PageBackground's overlapNav (-92px pull-up under the
+     sticky navbar) with room to spare, or content right at the top of the
+     card — like the eyebrow chip here — renders hidden behind the navbar. */
+  padding: clamp(140px, 12vw, 184px) 28px clamp(56px, 6vw, 88px);
   position: relative;
   overflow: hidden;
   border-radius: clamp(28px, 3vw, 44px);

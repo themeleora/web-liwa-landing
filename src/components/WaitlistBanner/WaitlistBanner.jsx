@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { supabase } from '../../lib/supabaseClient.js';
+import { useAsyncStatus } from '../../hooks/useAsyncStatus.js';
+import Spinner from '../Spinner/Spinner.jsx';
+import SuccessNote from '../SuccessNote/SuccessNote.jsx';
 import styles from './WaitlistBanner.module.css';
 
 const SURVEY_URL = 'https://forms.gle/Eu3ESnJPz4DRac1C8';
@@ -7,19 +10,23 @@ const SURVEY_URL = 'https://forms.gle/Eu3ESnJPz4DRac1C8';
 export default function WaitlistBanner() {
   const [email, setEmail] = useState('');
   const [sent, setSent] = useState(false);
+  const { isLoading, run } = useAsyncStatus();
 
-  const joinWaitlist = async () => {
-    const value = email.trim();
+  const joinWaitlist = () => {
+    const value = email.trim().toLowerCase();
     if (!value.includes('@')) return setSent('invalid');
-    const { error } = await supabase.from('waitlist_signups').insert({ email: value });
-    setSent(error ? 'error' : true);
+    run(async () => {
+      const { error } = await supabase.from('waitlist_signups').insert({ email: value });
+      // Postgres unique_violation — this email is already on the waitlist.
+      setSent(error ? (error.code === '23505' ? 'duplicate' : 'error') : true);
+    });
   };
 
   const note =
-    sent === true
-      ? "You're on the list — we'll be in touch."
-      : sent === 'invalid'
+    sent === 'invalid'
       ? 'Please enter a valid email address.'
+      : sent === 'duplicate'
+      ? "You're already on the waitlist — we'll be in touch."
       : sent === 'error'
       ? 'Something went wrong — please try again.'
       : '';
@@ -56,11 +63,28 @@ export default function WaitlistBanner() {
                 }}
                 className={styles.input}
               />
-              <div onClick={joinWaitlist} className={styles.joinButton}>
-                Join Waitlist
-              </div>
+              <button
+                type="button"
+                onClick={joinWaitlist}
+                className={styles.joinButton}
+                disabled={isLoading}
+                aria-busy={isLoading}
+              >
+                {isLoading ? (
+                  <>
+                    <Spinner size={16} />
+                    Joining…
+                  </>
+                ) : (
+                  'Join Waitlist'
+                )}
+              </button>
             </div>
-            <div className={styles.note}>{note}</div>
+            {sent === true ? (
+              <SuccessNote message="You're on the list — we'll be in touch." variant="onGradient" />
+            ) : (
+              <div className={styles.note}>{note}</div>
+            )}
           </div>
         </div>
       </div>

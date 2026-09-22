@@ -20,22 +20,46 @@
   background: linear-gradient(425deg, #FFFFFFEB, #836BF7, #4632B2);
 }
 
-.imgSpacer {
+/*
+  .imgWrap is the position:relative anchor for .phoneImg and the 3 badges
+  below, sized with aspect-ratio (not a fixed min-height) so its height
+  always tracks the image's real proportions at any width — a fixed-pixel
+  spacer would desync from .phoneImg's own width:100%;height:auto sizing
+  once this wrapper gets narrow, misplacing every percentage-positioned
+  child. 569/412 is screen-arrival.png's real intrinsic size.
+*/
+.imgWrap {
+  position: relative;
   flex: 0 0 56%;
   min-width: 0;
-  min-height: 380px;
+  aspect-ratio: 569 / 412;
+}
+
+@media (max-width: 768px) {
+  .imgWrap {
+    flex: 1 1 100%;
+    width: 100%;
+  }
 }
 
 .phoneImg {
   position: absolute;
-  left: -2%;
-  width: 56%;
+  left: -14%;
+  width: 112%;
   height: auto;
   max-width: none;
   transform: rotate(-5deg);
   filter: drop-shadow(rgba(22, 16, 82, 0.5) 0px 46px 70px);
   z-index: 1;
-  top: -7%;
+  top: -18%;
+}
+
+@media (max-width: 768px) {
+  .phoneImg {
+    width: 130%;
+    left: -15%;
+    top: -34%;
+  }
 }
 
 .badge {
@@ -50,9 +74,12 @@
   box-shadow: 0 18px 34px rgba(22, 16, 82, .28);
 }
 
-.badgeContext { top: 4%; left: 15.6%; }
-.badgePossibilities { top: 61%; left: 2%; }
-.badgeControl { left: 36%; top: 71%; }
+/* left values converted from the old .card-relative percentages by
+   dividing by 0.56 (.imgWrap's flex-basis share of .card). top values are
+   carried over as a starting point and were nudged visually afterward. */
+.badgeContext { top: 4%; left: 27.9%; }
+.badgePossibilities { top: 61%; left: 3.6%; }
+.badgeControl { left: 64.3%; top: 71%; }
 
 .badgeIcon {
   flex: none;
@@ -73,12 +100,47 @@
   white-space: nowrap;
 }
 
+@media (max-width: 768px) {
+  .badge {
+    gap: 6px;
+    height: 32px;
+    padding: 0 12px 0 6px;
+    box-sizing: border-box;
+  }
+
+  .badgePossibilities {
+    top: 54%;
+  }
+
+  .badgeIcon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .badgeIcon svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .badgeLabel {
+    font-size: 12px;
+  }
+}
+
 .content {
   flex: 1 1 260px;
   min-width: 0;
   position: relative;
   z-index: 4;
   padding-left: clamp(0px, 2.5vw, 72px);
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex: 1 1 100%;
+    width: 100%;
+    padding-left: 0;
+  }
 }
 
 .heading {
@@ -114,4 +176,13 @@
   color: rgba(255, 255, 255, .8);
   line-height: 1.6;
   max-width: 44ch;
+}
+
+@media (max-width: 768px) {
+  .body {
+    /* Stacked mobile layout puts this text against a lighter part of the
+       card's diagonal gradient than the desktop side-by-side layout does,
+       so the 80%-opacity white reads as low-contrast here specifically. */
+    color: #fff;
+  }
 }

@@ -41,6 +41,12 @@ img {
   max-width: 100%;
 }
 
+/* Branded text-selection highlight */
+::selection {
+  background: var(--color-primary);
+  color: #fff;
+}
+
 /* Branded scrollbar */
 html {
   scrollbar-color: var(--color-primary) var(--color-page-bg);

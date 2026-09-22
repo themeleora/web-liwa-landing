@@ -179,21 +179,14 @@
 }
 
 .input:hover,
-.select:hover,
 .textarea:hover {
   box-shadow: inset 0 0 0 1px #CFC9F2;
 }
 
 .input:focus,
-.select:focus,
 .textarea:focus {
   box-shadow: inset 0 0 0 1.5px #6C63FF, 0 0 0 4px rgba(108, 99, 255, .2);
   background: #FFFFFF;
-}
-
-.select {
-  appearance: none;
-  cursor: pointer;
 }
 
 .textarea {
@@ -257,6 +250,7 @@
   align-items: center;
   gap: 12px;
   margin-top: 4px;
+  flex-wrap: wrap;
 }
 
 .navRowSpread {
@@ -268,7 +262,13 @@
 }
 
 .backButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  border: none;
+  appearance: none;
+  font-family: inherit;
   border-radius: 9999px;
   background: var(--color-chip-bg);
   box-shadow: inset 0 0 0 1px var(--color-chip-border);
@@ -285,10 +285,23 @@
   color: #4B42D8;
 }
 
+.backButton:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 .nextButton {
   flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   text-align: center;
   cursor: pointer;
+  border: none;
+  appearance: none;
+  font-family: inherit;
   border-radius: 9999px;
   background: var(--color-primary);
   color: #fff;
@@ -302,6 +315,20 @@
 .nextButton:hover {
   background: var(--color-primary-hover);
   transform: translateY(-2px);
+}
+
+.nextButton:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+@media (max-width: 480px) {
+  .backButton,
+  .nextButton {
+    padding: 14px 28px;
+    flex: 1 1 auto;
+  }
 }
 
 .note {

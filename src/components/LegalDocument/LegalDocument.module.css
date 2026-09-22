@@ -1,0 +1,144 @@
+.section {
+  background: #FFFFFF;
+  padding: clamp(48px, 6vw, 88px) 28px clamp(72px, 8vw, 110px);
+  font-family: var(--font-lexend);
+  position: relative;
+  z-index: 1;
+}
+
+.doc {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.metaPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--color-chip-border);
+  background: var(--color-chip-bg);
+  border-radius: 9999px;
+  padding: 7px 16px 7px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #5A51F0;
+}
+
+.metaPill svg {
+  flex: none;
+  color: var(--color-primary);
+}
+
+.metaPill strong {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.paragraph {
+  margin: 0 0 18px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+}
+
+.sectionBlock {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-chip-border);
+}
+
+.heading {
+  margin: 0 0 18px;
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 700;
+  letter-spacing: -.01em;
+  color: var(--color-text);
+}
+
+.subheading {
+  margin: 28px 0 14px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.label {
+  margin: 18px 0 6px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.emphasis {
+  margin: 0 0 18px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.6;
+  background: var(--color-chip-bg);
+  border-radius: 14px;
+  padding: 14px 18px;
+}
+
+.list {
+  margin: 0 0 18px;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.list li {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.list li::marker {
+  color: var(--color-primary);
+}
+
+.contactBlock {
+  margin: 6px 0 18px;
+}
+
+.contactName {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.contactEmail {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.signature {
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-chip-border);
+  text-align: center;
+}
+
+.signatureName {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.signatureTagline {
+  margin-top: 4px;
+  font-family: var(--font-pacifico);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--color-primary);
+}

@@ -47,6 +47,12 @@
   cursor: default;
 }
 
+@media (max-width: 768px) {
+  .audienceCard {
+    min-height: 320px;
+  }
+}
+
 .cardHead {
   position: relative;
   z-index: 2;
